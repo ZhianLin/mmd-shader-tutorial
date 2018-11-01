@@ -3,5 +3,6 @@
     "description": "基于mikumikudance的着色器开发教程",
     "isbn": "",
     "language": "zh-cn",
-    "direction": "ltr"
+    "direction": "ltr",
+    "plugins": ["graph"]
 }
