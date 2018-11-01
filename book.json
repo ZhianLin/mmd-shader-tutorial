@@ -4,5 +4,8 @@
     "isbn": "",
     "language": "zh-cn",
     "direction": "ltr",
-    "plugins": ["graph"]
-}
+},
+"plugins": [
+	"graph",
+	"donate"
+]
