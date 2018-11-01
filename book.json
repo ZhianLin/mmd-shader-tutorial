@@ -6,7 +6,7 @@
     "direction": "ltr",
 },
 "plugins": [
-	"graph",
+	"graph@0.1.0",
 	"donate"
 ],
 "pluginsConfig":
