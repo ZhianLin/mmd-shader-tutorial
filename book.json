@@ -8,4 +8,7 @@
 "plugins": [
 	"graph",
 	"donate"
-]
+],
+"pluginsConfig":
+{	
+} 
