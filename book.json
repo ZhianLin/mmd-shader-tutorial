@@ -1,14 +1,12 @@
 {
-    "title": "实时渲染：MMD着色器开发",
-    "description": "基于mikumikudance的着色器开发教程",
-    "isbn": "",
-    "language": "zh-cn",
-    "direction": "ltr",
-},
-"plugins": [
-	"graph@0.1.0",
-	"donate"
-],
-"pluginsConfig":
-{	
-} 
+	"title": "实时渲染：MMD着色器开发",
+	"description": "基于mikumikudance的着色器开发教程",
+	"isbn": "",
+	"language": "zh-cn",
+	"direction": "ltr",
+	"plugins": [
+		"graph@0.1.0",
+		"donate"
+	],
+	"pluginsConfig": {}
+}
