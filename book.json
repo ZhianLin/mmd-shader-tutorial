@@ -5,7 +5,7 @@
 	"language": "zh-cn",
 	"direction": "ltr",
 	"plugins": [
-		"graph@0.1.0",
+		"graph",
 		"donate"
 	],
 	"pluginsConfig": {}
