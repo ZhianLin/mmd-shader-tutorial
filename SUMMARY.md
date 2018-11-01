@@ -4,7 +4,7 @@
 * [2.图形学基本理论](books/zh-cn/02-1-图形学基本理论.md)
     * [2.1.点](books/zh-cn/02-1-图形学基本理论.md)
     * [2.2.向量](books/zh-cn/02-2-向量.md)
-    * [2.3.向量](books/zh-cn/02-3-矩阵.md)
+    * [2.3.矩阵](books/zh-cn/02-3-矩阵.md)
 * [3.颜色和3D图形绘制](books/zh-cn/03-颜色和3D图形绘制.md)
 * [4.相机](books/zh-cn/04-相机.md)
 * [5.天空的绘制](books/zh-cn/05-天空的绘制.md)
