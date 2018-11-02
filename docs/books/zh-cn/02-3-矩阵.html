@@ -716,34 +716,62 @@ m=\begin{bmatrix}
 </li>
 <li><p>&#x77E9;&#x9635;&#x7684;&#x4E58;&#x6CD5;&#x6709;&#x4E09;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x6807;&#x91CF;&#x4E58;&#x4EE5;&#x77E9;&#x9635;&#xFF0C;&#x5411;&#x91CF;&#x4E58;&#x4EE5;&#x77E9;&#x9635;&#xFF0C;&#x77E9;&#x9635;&#x4E92;&#x4E58;</p>
 <ol>
-<li>&#x6807;&#x91CF;&#x4E0E;&#x77E9;&#x9635;&#x76F8;&#x4E58;</li>
+<li>&#x6807;&#x91CF;a&#x4E0E;&#x77E9;&#x9635;m&#x76F8;&#x4E58;</li>
 </ol>
 <p><script type="math/tex; mode=display">
-        a*b=
-        \begin{bmatrix}{a_{11}}\\{a_{21}}\\{a_{31}}\\\end{bmatrix}
-        \begin{bmatrix}
-        {b_{11}}&{b_{12}}&{b_{13}}\\
-        {b_{21}}&{b_{22}}&{b_{23}}\\
-        {b_{31}}&{b_{32}}&{b_{33}}\\
-        \end{bmatrix}\tag{5}
+    am=
+    a
+    \begin{bmatrix}
+    {m_{11}}&{m_{12}}&{m_{13}}\\
+    {m_{21}}&{m_{22}}&{m_{23}}\\
+    {m_{31}}&{m_{32}}&{m_{33}}\\
+    \end{bmatrix}=
+    \begin{bmatrix}
+    {am_{11}}&{am_{12}}&{am_{13}}\\
+    {am_{21}}&{am_{22}}&{am_{23}}\\
+    {am_{31}}&{am_{32}}&{am_{33}}\\
+    \end{bmatrix}
+    \tag{5}
     </script></p>
 <ol>
-<li>&#x5411;&#x91CF;&#x4E0E;&#x77E9;&#x9635;&#x76F8;&#x4E58;</li>
+<li>&#x5411;&#x91CF;<strong>v</strong>&#x4E0E;&#x77E9;&#x9635;m&#x76F8;&#x4E58;</li>
 </ol>
 <p><script type="math/tex; mode=display">
-        a*b=
-        \begin{bmatrix}{a_{11}}\\{a_{21}}\\{a_{31}}\\\end{bmatrix}
-        \begin{bmatrix}
-        {b_{11}}&{b_{12}}&{b_{13}}\\
-        {b_{21}}&{b_{22}}&{b_{23}}\\
-        {b_{31}}&{b_{32}}&{b_{33}}\\
-        \end{bmatrix}\tag{6}
+    v*m=
+    \begin{bmatrix}{v_{x}}\\{v_{y}}\\{v_{z}}\\\end{bmatrix}
+    \begin{bmatrix}
+    {m_{11}}&{m_{12}}&{m_{13}}\\
+    {m_{21}}&{m_{22}}&{m_{23}}\\
+    {m_{31}}&{m_{32}}&{m_{33}}\\
+    \end{bmatrix}=
+    \begin{bmatrix}
+    {v_{x}m_{00} + v_{y}m_{10} + v_{z}m_{20}}\\
+    {v_{x}m_{01} + v_{y}m_{11} + v_{z}m_{21}}\\
+    {v_{x}m_{02} + v_{y}m_{12} + v_{z}m_{22}}\\
+    \end{bmatrix}
+    \tag{6}
+    </script></p>
+<p><script type="math/tex; mode=display">
+    m*v=
+    \begin{bmatrix}
+    {m_{11}}&{m_{12}}&{m_{13}}\\
+    {m_{21}}&{m_{22}}&{m_{23}}\\
+    {m_{31}}&{m_{32}}&{m_{33}}\\
+    \end{bmatrix}
+    \begin{bmatrix}{v_{x}}\\{v_{y}}\\{v_{z}}\\\end{bmatrix}
+    =
+    \begin{bmatrix}
+    {v_{x}m_{00}}&{v_{y}m_{01}}&{v_{z}m_{02}}\\
+    {v_{x}m_{10}}&{v_{y}m_{11}}&{v_{z}m_{12}}\\
+    {v_{x}m_{20}}&{v_{y}m_{21}}&{v_{z}m_{22}}\\
+    \end{bmatrix}
+    \tag{6}
     </script></p>
 <ol>
-<li>&#x77E9;&#x9635;&#x4E0E;&#x77E9;&#x9635;&#x76F8;&#x4E58;</li>
+<li>&#x77E9;&#x9635;a&#x4E0E;&#x77E9;&#x9635;b&#x76F8;&#x4E58;</li>
 </ol>
 <p><script type="math/tex; mode=display">
-        a*b=
+    a*b=
         \begin{bmatrix}
         {a_{11}}&{a_{12}}&{a_{13}}\\
         {a_{21}}&{a_{22}}&{a_{23}}\\
@@ -753,7 +781,7 @@ m=\begin{bmatrix}
         {b_{11}}&{b_{12}}&{b_{13}}\\
         {b_{21}}&{b_{22}}&{b_{23}}\\
         {b_{31}}&{b_{32}}&{b_{33}}\\
-        \end{bmatrix}\tag{7}
+        \end{bmatrix}=C_{ij}=\sum_{k=0}^{n-1}a_{ik}b_{kj}\tag{7}
     </script></p>
 </li>
 </ol>
@@ -810,7 +838,7 @@ m=\left[
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.3.矩阵","level":"1.4.3","depth":2,"next":{"title":"3.相机","level":"1.5","depth":1,"path":"books/zh-cn/03-相机.md","ref":"books/zh-cn/03-相机.md","articles":[{"title":"3.1.视图变换","level":"1.5.1","depth":2,"path":"books/zh-cn/03-1-视图变换.md","ref":"books/zh-cn/03-1-视图变换.md","articles":[]},{"title":"3.2.正交投影","level":"1.5.2","depth":2,"path":"books/zh-cn/03-2-正交投影.md","ref":"books/zh-cn/03-2-正交投影.md","articles":[]},{"title":"3.3.透视投影","level":"1.5.3","depth":2,"path":"books/zh-cn/03-3-透视投影.md","ref":"books/zh-cn/03-3-透视投影.md","articles":[]},{"title":"3.4.物理相机模型","level":"1.5.4","depth":2,"path":"books/zh-cn/03-4-物理相机模型.md","ref":"books/zh-cn/03-4-物理相机模型.md","articles":[]}]},"previous":{"title":"2.2.向量","level":"1.4.2","depth":2,"path":"books/zh-cn/02-2-向量.md","ref":"books/zh-cn/02-2-向量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","graph","mathjax","myseo","-donate","-latex-codecogs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ray-cast/mmd-shader-tutorial"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"donate":{"title":"默认空","button":"默认值：Donate","alipayText":"默认值：支付宝捐赠","wechatText":"默认值：微信捐赠"},"mySEO":{"titlePrefix":"着色器开发","description":"基于mikumikudance的着色器开发教程","keywords":"着色器,教程,HLSL,shader,开发"},"myseo":{"description":"","keywords":"","titlePrefix":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"ray-cast","repo":"mmd-shader-tutorial","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"实时渲染：MMD着色器开发","language":"zh-cn","gitbook":"*","description":"基于mikumikudance的着色器开发教程","direction":"ltr"},"file":{"path":"books/zh-cn/02-3-矩阵.md","mtime":"2018-11-02T03:33:50.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T07:07:46.971Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3.矩阵","level":"1.4.3","depth":2,"next":{"title":"3.相机","level":"1.5","depth":1,"path":"books/zh-cn/03-相机.md","ref":"books/zh-cn/03-相机.md","articles":[{"title":"3.1.视图变换","level":"1.5.1","depth":2,"path":"books/zh-cn/03-1-视图变换.md","ref":"books/zh-cn/03-1-视图变换.md","articles":[]},{"title":"3.2.正交投影","level":"1.5.2","depth":2,"path":"books/zh-cn/03-2-正交投影.md","ref":"books/zh-cn/03-2-正交投影.md","articles":[]},{"title":"3.3.透视投影","level":"1.5.3","depth":2,"path":"books/zh-cn/03-3-透视投影.md","ref":"books/zh-cn/03-3-透视投影.md","articles":[]},{"title":"3.4.物理相机模型","level":"1.5.4","depth":2,"path":"books/zh-cn/03-4-物理相机模型.md","ref":"books/zh-cn/03-4-物理相机模型.md","articles":[]}]},"previous":{"title":"2.2.向量","level":"1.4.2","depth":2,"path":"books/zh-cn/02-2-向量.md","ref":"books/zh-cn/02-2-向量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","graph","mathjax","myseo","-donate","-latex-codecogs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ray-cast/mmd-shader-tutorial"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"donate":{"title":"默认空","button":"默认值：Donate","alipayText":"默认值：支付宝捐赠","wechatText":"默认值：微信捐赠"},"mySEO":{"titlePrefix":"着色器开发","description":"基于mikumikudance的着色器开发教程","keywords":"着色器,教程,HLSL,shader,开发"},"myseo":{"description":"","keywords":"","titlePrefix":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"ray-cast","repo":"mmd-shader-tutorial","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"实时渲染：MMD着色器开发","language":"zh-cn","gitbook":"*","description":"基于mikumikudance的着色器开发教程","direction":"ltr"},"file":{"path":"books/zh-cn/02-3-矩阵.md","mtime":"2018-11-02T11:22:07.265Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T11:26:21.966Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
