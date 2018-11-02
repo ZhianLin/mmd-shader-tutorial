@@ -5,12 +5,16 @@
 	"language": "zh-cn",
 	"direction": "ltr",
 	"plugins": [
+		"github",
 		"graph",
-		"katex",
+		"mathjax",
 		"-donate"
 	],
 	"pluginsConfig": 
 	{
+        "github": {
+            "url": "https://github.com/ray-cast/mmd-shader-tutorial"
+        },
         "donate": {
           "title": "默认空",
           "button": "默认值：Donate",
