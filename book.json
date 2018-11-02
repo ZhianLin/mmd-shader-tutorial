@@ -6,6 +6,7 @@
 	"direction": "ltr",
 	"plugins": [
 		"github",
+		"github-buttons",
 		"graph",
 		"mathjax",
 		"myseo",
@@ -17,6 +18,14 @@
 		"github": {
 			"url": "https://github.com/ray-cast/mmd-shader-tutorial"
 		},
+    	"github-buttons": {
+    	  "buttons": [{
+    	    "user": "ray-cast",
+    	    "repo": "mmd-shader-tutorial",
+    	    "type": "star",
+    	    "size": "small"
+    	  }]
+    	},
 		"mySEO":{
 			"titlePrefix": "着色器开发",
 			"description": "基于mikumikudance的着色器开发教程",
