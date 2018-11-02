@@ -8,19 +8,25 @@
 		"github",
 		"graph",
 		"mathjax",
+		"myseo",
 		"-donate",
 		"-latex-codecogs"
 	],
 	"pluginsConfig": 
 	{
-        "github": {
-            "url": "https://github.com/ray-cast/mmd-shader-tutorial"
-        },
-        "donate": {
-          "title": "默认空",
-          "button": "默认值：Donate",
-          "alipayText": "默认值：支付宝捐赠",
-          "wechatText": "默认值：微信捐赠"
-        }
+		"github": {
+			"url": "https://github.com/ray-cast/mmd-shader-tutorial"
+		},
+		"mySEO":{
+			"titlePrefix": "着色器开发",
+			"description": "基于mikumikudance的着色器开发教程",
+			"keywords": "着色器,教程,HLSL,shader,开发"
+		},
+		"donate": {
+		  "title": "默认空",
+		  "button": "默认值：Donate",
+		  "alipayText": "默认值：支付宝捐赠",
+		  "wechatText": "默认值：微信捐赠"
+		}
 	}
 }
