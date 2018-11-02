@@ -1,3 +1,3 @@
 
 #!/bin/bash
-./gitbook serve --port 80
+gitbook serve --port 80
