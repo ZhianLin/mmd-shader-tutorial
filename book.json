@@ -8,7 +8,8 @@
 		"github",
 		"graph",
 		"mathjax",
-		"-donate"
+		"-donate",
+		"-latex-codecogs"
 	],
 	"pluginsConfig": 
 	{
