@@ -36,6 +36,9 @@
 		  "button": "默认值：Donate",
 		  "alipayText": "默认值：支付宝捐赠",
 		  "wechatText": "默认值：微信捐赠"
-		}
+		},
+        "mathjax":{
+            "forceSVG": true
+        }
 	}
 }
