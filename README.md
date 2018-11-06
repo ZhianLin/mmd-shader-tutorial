@@ -17,8 +17,8 @@
 
 ## 开始阅读
   `你可以通过以下的方式阅读本书:`
-  1. 微信公众号: 小碎花染坊
-  2. [Github](https://github.com/ray-cast/mmd-shader-tutorial)
+  1. [微信公众号: 小碎花染坊](https://mp.weixin.qq.com/s/https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzU2MDcyOTM3NA==&mid=100000001&idx=1&sn=523368789a9e58267966d30a2faa7e6e&send_time=)
+  2. [Gitbook](https://shader.octoon.org/)
 
 ## 相关代码
  本书每章中都会出现大量的shader代码，如果你在跟随本书介绍的内容，遇到问题时，可以尝试在[Github](https://github.com/ray-cast/mmd-shader-tutorial)中找到书中介绍过的全部源码，所有代码将会按以`序号/章节`的目录名成组织
