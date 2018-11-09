@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.1.顶点着色器 · 实时渲染：MMD着色器开发</title>
+        <title>2.MMD的图形开发框架 · 实时渲染：MMD着色器开发</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="04-2-像素着色器.html" />
+    <link rel="next" href="02-1-框架.html" />
     
     
-    <link rel="prev" href="04-颜色和纹理.html" />
+    <link rel="prev" href="01-3-矩阵.html" />
     
 
     <script src="../../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -189,12 +189,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="02-0-相机.html">
+        <li class="chapter active" data-level="1.4" data-path="02-0-MMD的图形开发框架.html">
             
-                <a href="02-0-相机.html">
+                <a href="02-0-MMD的图形开发框架.html">
             
                     
-                    2.0.相机
+                    2.MMD的图形开发框架
             
                 </a>
             
@@ -203,12 +203,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="02-1-视图变换.html">
+        <li class="chapter " data-level="1.4.1" data-path="02-1-框架.html">
             
-                <a href="02-1-视图变换.html">
+                <a href="02-1-框架.html">
             
                     
-                    2.1.视图变换
+                    2.1.框架
             
                 </a>
             
@@ -216,12 +216,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="02-2-正交投影.html">
+        <li class="chapter " data-level="1.4.2" data-path="02-2-顶点着色器.html">
             
-                <a href="02-2-正交投影.html">
+                <a href="02-2-顶点着色器.html">
             
                     
-                    2.2.正交投影
+                    2.2.顶点着色器
             
                 </a>
             
@@ -229,25 +229,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="02-3-透视投影.html">
+        <li class="chapter " data-level="1.4.3" data-path="02-3-像素着色器.html">
             
-                <a href="02-3-透视投影.html">
-            
-                    
-                    2.3.透视投影
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="02-4-物理相机模型.html">
-            
-                <a href="02-4-物理相机模型.html">
+                <a href="02-3-像素着色器.html">
             
                     
-                    2.4.物理相机模型
+                    2.3.像素着色器
             
                 </a>
             
@@ -260,25 +247,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="02-MMD的图形开发框架.md">
+        <li class="chapter " data-level="1.5" data-path="03-0-相机.html">
             
-                <span>
-            
-                    
-                    3.MMD的图形开发框架
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6" data-path="04-颜色和纹理.html">
-            
-                <a href="04-颜色和纹理.html">
+                <a href="03-0-相机.html">
             
                     
-                    4.颜色和纹理
+                    3.0.相机
             
                 </a>
             
@@ -287,12 +261,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.6.1" data-path="04-1-顶点着色器.html">
+        <li class="chapter " data-level="1.5.1" data-path="03-1-视图变换.html">
             
-                <a href="04-1-顶点着色器.html">
+                <a href="03-1-视图变换.html">
             
                     
-                    4.1.顶点着色器
+                    3.1.视图变换
             
                 </a>
             
@@ -300,12 +274,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="04-2-像素着色器.html">
+        <li class="chapter " data-level="1.5.2" data-path="03-2-正交投影.html">
             
-                <a href="04-2-像素着色器.html">
+                <a href="03-2-正交投影.html">
             
                     
-                    4.2.像素着色器
+                    3.2.正交投影
             
                 </a>
             
@@ -313,12 +287,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="04-3-色彩模型.html">
+        <li class="chapter " data-level="1.5.3" data-path="03-3-透视投影.html">
             
-                <a href="04-3-色彩模型.html">
+                <a href="03-3-透视投影.html">
             
                     
-                    4.3.色彩模型
+                    3.3.透视投影
             
                 </a>
             
@@ -326,12 +300,57 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="04-4-伽马效正.html">
+        <li class="chapter " data-level="1.5.4" data-path="03-4-物理相机模型.html">
             
-                <a href="04-4-伽马效正.html">
+                <a href="03-4-物理相机模型.html">
             
                     
-                    4.4.伽马效正
+                    3.4.物理相机模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="04-0-颜色和纹理.html">
+            
+                <a href="04-0-颜色和纹理.html">
+            
+                    
+                    4.0.颜色和纹理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="04-1-色彩模型.html">
+            
+                <a href="04-1-色彩模型.html">
+            
+                    
+                    4.1.色彩模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="04-2-伽马效正.html">
+            
+                <a href="04-2-伽马效正.html">
+            
+                    
+                    4.2.伽马效正
             
                 </a>
             
@@ -660,7 +679,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >4.1.顶点着色器</a>
+        <a href="../.." >2.MMD的图形开发框架</a>
     </h1>
 </div>
 
@@ -675,7 +694,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="01-mmd&#x7684;&#x56FE;&#x5F62;&#x5F00;&#x53D1;&#x5FEB;&#x901F;&#x5165;&#x95E8;">01-MMD&#x7684;&#x56FE;&#x5F62;&#x5F00;&#x53D1;&#x5FEB;&#x901F;&#x5165;&#x95E8;</h1>
+<p>&#x200B;    &#x672C;&#x4E66;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#x4E00;&#x4E9B; HLSL &#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4F46;&#x672C;&#x4E66;&#x4F1A;&#x8BE6;&#x7EC6;&#x8BB2;&#x89E3; HLSL &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EA;&#x9700;&#x5BF9;&#x4EFB;&#x4F55;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x4E86;&#x89E3;&#xFF0C;&#x4F8B;&#x5982; C / C++ &#x8BED;&#x8A00;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8BFB;&#x61C2;HLSL&#x7684;&#x8BED;&#x6CD5;&#x6846;&#x67B6;&#x3002;</p>
+<h4 id="&#x6E32;&#x67D3;&#x73AF;&#x5883;">&#x6E32;&#x67D3;&#x73AF;&#x5883;</h4>
+<p>&#x200B;    MikuMikuDance &#x662F;&#x4E00;&#x4E2A;&#x514D;&#x8D39;&#x7684;&#x52A8;&#x753B;&#x7A0B;&#x5E8F;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x6A21;&#x578B;&#x7684;&#x8F7D;&#x5165;&#xFF0C;&#x9AA8;&#x9ABC;&#x52A8;&#x753B;&#xFF0C;&#x7269;&#x7406;&#x7CFB;&#x7EDF;&#xFF0C;&#x5F55;&#x5236;&#x89C6;&#x9891;&#xFF0C;&#x4EE5;&#x53CA; MikuMikuEffect &#x63D2;&#x4EF6;&#x63D0;&#x4F9B;&#x7F16;&#x5199;&#x81EA;&#x5B9A;&#x4E49;&#x7684;DX9&#x7684;&#x7279;&#x6548;&#xFF08;Effect&#xFF09;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x4E0D;&#x501F;&#x52A9; DirectX &#x548C; OpenGL &#x7F16;&#x5199;&#x6846;&#x67B6;&#x65F6;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x9002;&#x5408;&#x5B66;&#x4E60;&#x7740;&#x8272;&#x5668;&#x5F00;&#x53D1;&#x7684;&#x8F6F;&#x4EF6;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x4E3A;&#x4E86;&#x7167;&#x987E;&#x4E00;&#x4E9B;&#x4E0D;&#x592A;&#x719F;&#x6089; DirectX &#x548C; OpenGL &#x7684;&#x8BFB;&#x8005;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x662F;&#x4E3A;&#x4E86;&#x80FD;&#x4F7F;&#x8BFB;&#x8005;&#x66F4;&#x597D;&#x7684;&#x6295;&#x5165;&#x5230;&#x7740;&#x8272;&#x5668;&#xFF08;Shader&#xFF09;&#x5F00;&#x53D1;&#xFF0C;&#x66F4;&#x5FEB;&#x7684;&#x638C;&#x63E1;&#x56FE;&#x5F62;&#x5F00;&#x53D1;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x592A;&#x4E86;&#x89E3;MikuMikuDance &#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x82B1;&#x4E0A;&#x4E00;&#x6BB5;&#x5B66;&#x4E60;&#x8FD9;&#x6B3E;&#x8F6F;&#x4EF6;&#xFF0C;&#x8FD9;&#x5C06;&#x6709;&#x52A9;&#x4E8E;&#x7406;&#x89E3;&#x540E;&#x9762;&#x7684;&#x7740;&#x8272;&#x5668;&#xFF08;Shader&#xFF09;&#x7684;&#x5F00;&#x53D1;&#x7684;&#x6846;&#x67B6;&#x548C;&#x5B9E;&#x73B0;</p>
+
                                 
                                 </section>
                             
@@ -702,12 +725,12 @@
 
             
                 
-                <a href="04-颜色和纹理.html" class="navigation navigation-prev " aria-label="Previous page: 4.颜色和纹理">
+                <a href="01-3-矩阵.html" class="navigation navigation-prev " aria-label="Previous page: 1.3.矩阵">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="04-2-像素着色器.html" class="navigation navigation-next " aria-label="Next page: 4.2.像素着色器">
+                <a href="02-1-框架.html" class="navigation navigation-next " aria-label="Next page: 2.1.框架">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -718,7 +741,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1.顶点着色器","level":"1.6.1","depth":2,"next":{"title":"4.2.像素着色器","level":"1.6.2","depth":2,"path":"books/zh-cn/04-2-像素着色器.md","ref":"books/zh-cn/04-2-像素着色器.md","articles":[]},"previous":{"title":"4.颜色和纹理","level":"1.6","depth":1,"path":"books/zh-cn/04-颜色和纹理.md","ref":"books/zh-cn/04-颜色和纹理.md","articles":[{"title":"4.1.顶点着色器","level":"1.6.1","depth":2,"path":"books/zh-cn/04-1-顶点着色器.md","ref":"books/zh-cn/04-1-顶点着色器.md","articles":[]},{"title":"4.2.像素着色器","level":"1.6.2","depth":2,"path":"books/zh-cn/04-2-像素着色器.md","ref":"books/zh-cn/04-2-像素着色器.md","articles":[]},{"title":"4.3.色彩模型","level":"1.6.3","depth":2,"path":"books/zh-cn/04-3-色彩模型.md","ref":"books/zh-cn/04-3-色彩模型.md","articles":[]},{"title":"4.4.伽马效正","level":"1.6.4","depth":2,"path":"books/zh-cn/04-4-伽马效正.md","ref":"books/zh-cn/04-4-伽马效正.md","articles":[]}]},"dir":"neutral"},"config":{"plugins":["github","github-buttons","graph","mathjax","myseo","-donate","-latex-codecogs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ray-cast/mmd-shader-tutorial"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"donate":{"title":"默认空","button":"默认值：Donate","alipayText":"默认值：支付宝捐赠","wechatText":"默认值：微信捐赠"},"mySEO":{"titlePrefix":"着色器开发","description":"基于mikumikudance的着色器开发教程","keywords":"着色器,教程,HLSL,shader,开发"},"myseo":{"description":"","keywords":"","titlePrefix":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"ray-cast","repo":"mmd-shader-tutorial","type":"star","size":"small"}]},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"实时渲染：MMD着色器开发","language":"zh-cn","gitbook":"*","description":"基于mikumikudance的着色器开发教程","direction":"ltr"},"file":{"path":"books/zh-cn/04-1-顶点着色器.md","mtime":"2018-11-08T10:57:53.521Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-09T07:38:17.402Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.MMD的图形开发框架","level":"1.4","depth":1,"next":{"title":"2.1.框架","level":"1.4.1","depth":2,"path":"books/zh-cn/02-1-框架.md","ref":"books/zh-cn/02-1-框架.md","articles":[]},"previous":{"title":"1.3.矩阵","level":"1.3.3","depth":2,"path":"books/zh-cn/01-3-矩阵.md","ref":"books/zh-cn/01-3-矩阵.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","graph","mathjax","myseo","-donate","-latex-codecogs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ray-cast/mmd-shader-tutorial"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"donate":{"title":"默认空","button":"默认值：Donate","alipayText":"默认值：支付宝捐赠","wechatText":"默认值：微信捐赠"},"mySEO":{"titlePrefix":"着色器开发","description":"基于mikumikudance的着色器开发教程","keywords":"着色器,教程,HLSL,shader,开发"},"myseo":{"description":"","keywords":"","titlePrefix":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"ray-cast","repo":"mmd-shader-tutorial","type":"star","size":"small"}]},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"实时渲染：MMD着色器开发","language":"zh-cn","gitbook":"*","description":"基于mikumikudance的着色器开发教程","direction":"ltr"},"file":{"path":"books/zh-cn/02-0-MMD的图形开发框架.md","mtime":"2018-11-08T10:57:54.146Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-09T08:13:38.911Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
