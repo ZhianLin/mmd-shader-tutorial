@@ -1,0 +1,868 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.3.矩阵 · 实时渲染：MMD着色器开发</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-MMD的图形开发框架.html" />
+    
+    
+    <link rel="prev" href="01-2-向量.html" />
+    
+
+    <script src="../../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ray-cast","repo":"mmd-shader-tutorial","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="00-序.html">
+            
+                <a href="00-序.html">
+            
+                    
+                    序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="01-0-图形学基本理论.html">
+            
+                <a href="01-0-图形学基本理论.html">
+            
+                    
+                    1.图形学基本理论
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-1-点.html">
+            
+                <a href="01-1-点.html">
+            
+                    
+                    1.1.点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="01-2-向量.html">
+            
+                <a href="01-2-向量.html">
+            
+                    
+                    1.2.向量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="01-3-矩阵.html">
+            
+                <a href="01-3-矩阵.html">
+            
+                    
+                    1.3.矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="02-MMD的图形开发框架.html">
+            
+                <a href="02-MMD的图形开发框架.html">
+            
+                    
+                    2.MMD的图形开发框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="03-相机.html">
+            
+                <a href="03-相机.html">
+            
+                    
+                    3.相机
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="03-1-视图变换.html">
+            
+                <a href="03-1-视图变换.html">
+            
+                    
+                    3.1.视图变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="03-2-正交投影.html">
+            
+                <a href="03-2-正交投影.html">
+            
+                    
+                    3.2.正交投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="03-3-透视投影.html">
+            
+                <a href="03-3-透视投影.html">
+            
+                    
+                    3.3.透视投影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="03-4-物理相机模型.html">
+            
+                <a href="03-4-物理相机模型.html">
+            
+                    
+                    3.4.物理相机模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="04-颜色和纹理.html">
+            
+                <a href="04-颜色和纹理.html">
+            
+                    
+                    4.颜色和纹理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="04-1-顶点着色器.html">
+            
+                <a href="04-1-顶点着色器.html">
+            
+                    
+                    4.1.顶点着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="04-2-像素着色器.html">
+            
+                <a href="04-2-像素着色器.html">
+            
+                    
+                    4.2.像素着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="04-3-色彩模型.html">
+            
+                <a href="04-3-色彩模型.html">
+            
+                    
+                    4.3.色彩模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="04-4-伽马效正.html">
+            
+                <a href="04-4-伽马效正.html">
+            
+                    
+                    4.4.伽马效正
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="05-天空的绘制.html">
+            
+                <a href="05-天空的绘制.html">
+            
+                    
+                    5.天空的绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="06-光照和材质.html">
+            
+                <a href="06-光照和材质.html">
+            
+                    
+                    6.光照和材质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="07-混合.html">
+            
+                <a href="07-混合.html">
+            
+                    
+                    7.混合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="08-阴影.html">
+            
+                <a href="08-阴影.html">
+            
+                    
+                    8.阴影
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="09-高动态范围图像.html">
+            
+                <a href="09-高动态范围图像.html">
+            
+                    
+                    9.高动态范围图像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="10-雾.html">
+            
+                <a href="10-雾.html">
+            
+                    
+                    10.雾
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="11-光晕.html">
+            
+                <a href="11-光晕.html">
+            
+                    
+                    11.光晕
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="12-光溢出.html">
+            
+                <a href="12-光溢出.html">
+            
+                    
+                    12.光溢出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="13-云隙光.html">
+            
+                <a href="13-云隙光.html">
+            
+                    
+                    13.云隙光
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="14-雨滴镜头.html">
+            
+                <a href="14-雨滴镜头.html">
+            
+                    
+                    14.雨滴镜头
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="15-环境光遮蔽.html">
+            
+                <a href="15-环境光遮蔽.html">
+            
+                    
+                    15.环境光遮蔽
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="16-局部镜面反射.html">
+            
+                <a href="16-局部镜面反射.html">
+            
+                    
+                    16.局部镜面反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="17-体积光.html">
+            
+                <a href="17-体积光.html">
+            
+                    
+                    17.体积光
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="18-体积雾.html">
+            
+                <a href="18-体积雾.html">
+            
+                    
+                    18.体积雾
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="19-彩虹.html">
+            
+                <a href="19-彩虹.html">
+            
+                    
+                    19.彩虹
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="20-大气散射.html">
+            
+                <a href="20-大气散射.html">
+            
+                    
+                    20.大气散射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="21-反走样.html">
+            
+                <a href="21-反走样.html">
+            
+                    
+                    21.反走样
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="22-延迟光照.html">
+            
+                <a href="22-延迟光照.html">
+            
+                    
+                    22.延迟光照
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="23-辐射基本知识.html">
+            
+                <a href="23-辐射基本知识.html">
+            
+                    
+                    23.辐射基本知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="24-基于物理的材质.html">
+            
+                <a href="24-基于物理的材质.html">
+            
+                    
+                    24.基于物理的材质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="25-基于物理的环境光.html">
+            
+                <a href="25-基于物理的环境光.html">
+            
+                    
+                    25.基于物理的环境光
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="参考文献.html">
+            
+                <a href="参考文献.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >1.3.矩阵</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x77E9;&#x9635;">&#x77E9;&#x9635;</h2>
+<p>&#x200B;&#x77E9;&#x9635;&#x662F;&#x9AD8;&#x7B49;&#x4EE3;&#x6570;&#x4E2D;&#x7684;&#x5E38;&#x7528;&#x5DE5;&#x5177;&#xFF0C;&#x4E5F;&#x662F;3D&#x6570;&#x5B66;&#x7684;&#x91CD;&#x8981;&#x57FA;&#x7840;&#xFF0C;&#x5E38;&#x7528;&#x4E8E;&#x56FE;&#x5F62;&#x5B66;&#x4E2D;&#x7684;&#x76F8;&#x673A;&#x6295;&#x5F71;&#xFF0C;&#x7269;&#x4F53;&#x7684;&#x5E73;&#x79FB;&#x65CB;&#x8F6C;&#x53D8;&#x6362;&#xFF0C;&#x5728;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x4E2D;&#xFF0C;&#x77E9;&#x9635;&#x662F;&#x4EE5;&#x884C;&#x548C;&#x5217;&#x7684;&#x5F62;&#x5F0F;&#x7EC4;&#x6210;&#x7684;&#x6570;&#x503C;&#x5757;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<em>m</em> x <em>n</em>&#x6765;&#x5B9A;&#x4E49;&#x77E9;&#x9635;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5B83;&#x4EE3;&#x8868;&#x77E9;&#x9635;&#x7684;<em>m</em>&#x884C;&#x548C;<em>n</em>&#x5217;&#x5404;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5176;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="../../_mathjax_5d329717.svg"></p>
+<p>&#x200B; &#x5BF9;&#x4E8E;4x4&#x7684;&#x77E9;&#x9635; <strong><em>M</em></strong>&#xFF0C;&#x5176;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_a8d8ecce.svg"></p>
+<h4 id="&#x77E9;&#x9635;&#x8FD0;&#x7B97;">&#x77E9;&#x9635;&#x8FD0;&#x7B97;</h4>
+<ol>
+<li>&#x77E9;&#x9635;&#x7684;&#x52A0;&#x6CD5;&#x548C;&#x51CF;&#x6CD5;&#x5FC5;&#x987B;&#x786E;&#x5B9A;&#x53C2;&#x4E0E;&#x8FD0;&#x7B97;&#x7684;&#x77E9;&#x9635;&#x90FD;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5176;&#x8FD0;&#x7B97;&#x65B9;&#x5F0F;&#x548C;&#x5411;&#x91CF;&#x7684;&#x52A0;&#x51CF;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x9700;&#x5C06;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x76F8;&#x52A0;&#x6216;&#x76F8;&#x51CF;&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x653E;&#x5728;&#x8BE5;&#x4F4D;&#x7F6E;&#x4E0A;&#x5373;&#x53EF;
+<img src="../../_mathjax_6a076e39.svg"></li>
+</ol>
+<p><img src="../../_mathjax_3f6c7d8a.svg"></p>
+<ol>
+<li>&#x77E9;&#x9635;&#x7684;&#x4E58;&#x6CD5;&#x6709;&#x4E09;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x6807;&#x91CF;&#x4E58;&#x4EE5;&#x77E9;&#x9635;&#xFF0C;&#x5411;&#x91CF;&#x4E58;&#x4EE5;&#x77E9;&#x9635;&#xFF0C;&#x77E9;&#x9635;&#x4E92;&#x4E58;<ol>
+<li>&#x6807;&#x91CF;a&#x4E0E;&#x77E9;&#x9635;m&#x76F8;&#x4E58;
+<img src="../../_mathjax_61904324.svg"></li>
+<li>&#x5411;&#x91CF;<strong>v</strong>&#x4E0E;&#x77E9;&#x9635;m&#x76F8;&#x4E58;
+<img src="../../_mathjax_fb70df58.svg">
+<img src="../../_mathjax_ed5142dc.svg"></li>
+<li>&#x77E9;&#x9635;a&#x4E0E;&#x77E9;&#x9635;b&#x76F8;&#x4E58;
+<img src="../../_mathjax_253802bd.svg"></li>
+</ol>
+</li>
+</ol>
+<h4 id="&#x5355;&#x4F4D;&#x77E9;&#x9635;">&#x5355;&#x4F4D;&#x77E9;&#x9635;</h4>
+<p>&#x5355;&#x4F4D;&#x77E9;&#x9635;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x5BF9;&#x89D2;&#x77E9;&#x9635;&#xFF0C;&#x5982;&#x540C;&#x4E58;&#x6570;&#x4E2D;&#x7684;1&#xFF0C;&#x5176;&#x5BF9;&#x89D2;&#x7EBF;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x4E3A; 1&#xFF0C;&#x5176;&#x4F59;&#x5143;&#x7D20;&#x4E3A;0&#x7684;n&#x9636;&#x77E9;&#x9635;&#x79F0;&#x4E3A;n&#x9636;&#x5355;&#x4F4D;&#x77E9;&#x9635;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x7B26;&#x53F7; <strong><em>I</em></strong> &#x8868;&#x793A;&#x5355;&#x4F4D;&#x77E9;&#x9635;&#xFF0C;&#x5355;&#x4F4D;&#x77E9;&#x9635;&#x6700;&#x91CD;&#x8981;&#x7684;&#x6027;&#x8D28;&#x4E3A;&#xFF1A;<img src="../../_mathjax_cebf04c7.svg"> &#x548C; <img src="../../_mathjax_cc8c937a.svg">&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x56FE;&#x5F62;&#x4E2D;&#x5355;&#x4F4D;&#x77E9;&#x9635;&#x5E38;&#x7528;&#x4E8E;&#x521D;&#x59CB;&#x5316;&#x7269;&#x4F53;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x65CB;&#x8F6C;&#xFF0C;&#x7F29;&#x653E;&#x3002;</p>
+<p><img src="../../_mathjax_bef6a528.svg"></p>
+<h4 id="&#x77E9;&#x9635;&#x53D8;&#x6362;">&#x77E9;&#x9635;&#x53D8;&#x6362;</h4>
+<p>&#x5728;&#x56FE;&#x5F62;&#x7A0B;&#x5E8F;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x8981;&#x5BF9;&#x7269;&#x4F53;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x51E0;&#x4F55;&#x53D8;&#x6362;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x5E73;&#x79FB;&#xFF0C;&#x65CB;&#x8F6C;&#xFF0C;&#x7F29;&#x653E;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x89C4;&#x5219;&#x6216;&#x89C4;&#x5F8B;&#x7684;&#x53D8;&#x6362;&#x5219;&#x6784;&#x6210;&#x4E86;&#x590D;&#x6742;&#x7684;&#x6A21;&#x578B;&#x8FD0;&#x52A8;&#xFF0C;&#x4F8B;&#x5982;&#x7269;&#x7406;&#x78B0;&#x649E;&#x6548;&#x679C;&#xFF0C;&#x6A21;&#x578B;&#x7684;&#x9AA8;&#x9ABC;&#x52A8;&#x753B;&#xFF0C;&#x7C92;&#x5B50;&#x7B49;&#xFF0C;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x53EF;&#x4EE5;&#x8BF4;&#xFF0C;&#x56FE;&#x5F62;&#x7684;&#x51E0;&#x4F55;&#x53D8;&#x6362;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x56FE;&#x5F62;&#x5B66;&#x7CFB;&#x7EDF;&#x7684;&#x6838;&#x5FC3;&#x5185;&#x5BB9;&#x3002;</p>
+<ol>
+<li><p>&#x5E73;&#x79FB;&#x53D8;&#x6362; (Translate)</p>
+<p>&#x5BF9;&#x4E8E;&#x5728;&#x5E73;&#x9762;&#x4E0A;&#x7684;&#x70B9; <em>P</em>&#xFF08;x&#xFF0C;y&#xFF09;&#xFF0C;&#x5728;&#x5E73;&#x884C;&#x4E8E;X&#x8F74;&#x65B9;&#x5411;&#x4E0A;&#x79FB;&#x52A8;dx&#x4E2A;&#x5355;&#x4F4D;&#xFF0C;&#x5728;Y&#x8F74;&#x65B9;&#x5411;&#x4E0A;&#xFF0C;&#x79FB;&#x52A8;dy&#x4E2A;&#x5355;&#x4F4D;&#xFF0C;&#x5219;&#x5F97;&#x5230;&#x65B0;&#x7684;&#x70B9;<em>P&apos;</em>&#xFF08;x&apos;&#xFF0C;y&apos;&#xFF09;,&#x70B9; <em>P</em> &#x548C; &#x70B9; <em>P&apos;</em> &#x7684;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_cf6404ef.svg"></p>
+<p>&#x5982;&#x679C;&#x70B9;&#x7528;&#x5411;&#x91CF;&#x7684;&#x65B9;&#x5F0F;&#x7ED9;&#x51FA;&#xFF0C;P = [x y], P&apos; = [x&apos; y&apos;]&#xFF0C;&#x4F4D;&#x79FB;&#x7684;&#x6570;&#x91CF;&#x7528;&#x4E3A; <img src="../../_mathjax_3aea81ad.svg">&#xFF0C;&#x5219;&#x5E73;&#x79FB;&#x53D8;&#x6362;&#x53EF;&#x4EE5;&#x5199;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_66e0e802.svg"></p>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x516C;&#x5F0F;&#x8868;&#x793A;&#x4E3A;:</p>
+<p><img src="../../_mathjax_a97ef25d.svg"></p>
+<p>&#x8BBE;&#x4E09;&#x7EF4;&#x7A7A;&#x95F4;&#x5185;&#x4E00;&#x70B9;P(x&#xFF0C;y&#xFF0C;z)&#xFF0C;&#x6CBF;&#x4E09;&#x4E2A;&#x5750;&#x6807;&#x8F74;&#x7684;&#x5E73;&#x79FB;&#x91CF;<img src="../../_mathjax_3e9c1e38.svg">&#x4E3A;dx&#xFF0C; dy &#x548C; dz&#xFF0C;&#x5219;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x70B9; P&apos;(x&apos;&#xFF0C;y&apos;&#xFF0C;z&apos;)&#xFF0C;&#x70B9; P &#x548C;&#x70B9; P&apos; &#x7684;&#x5173;&#x7CFB;&#x4E3A;:</p>
+<p><img src="../../_mathjax_1e6a984b.svg"></p>
+</li>
+<li><p>&#x65CB;&#x8F6C;&#x53D8;&#x6362; (Rotation)</p>
+<p>&#x5728;&#x5E73;&#x9762;&#x4E0A;&#x7684;&#x70B9; P(x&#xFF0C;y)&#xFF0C;&#x7ED5;&#x539F;&#x70B9;&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C; $\theta$ &#x89D2;&#x5EA6;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x70B9; P&apos;(x&apos;&#xFF0C;y&apos;)&#xFF0C; &#x8FD9;&#x79CD;&#x53D8;&#x6362;&#x88AB;&#x79F0;&#x4E3A;&#x65CB;&#x8F6C;&#x53D8;&#x6362;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<center><img src="../../assets/2d-rotate.png" align="center"></center>
+
+<p> &#x6839;&#x636E;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#xFF0C;&#x70B9; <em>P</em> &#x548C; &#x70B9; <em>P&apos;</em> &#x7684;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_b01f73b4.svg"></p>
+<p> &#x5982;&#x679C;&#x5C06;&#x4E0A;&#x8BC9;&#x516C;&#x5F0F;&#x7528;&#x77E9;&#x9635;&#x7684;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x5219;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_ab7f1e33.svg"></p>
+</li>
+<li><p>&#x7F29;&#x653E;&#x53D8;&#x6362; (Scale)</p>
+<p>&#x5728;&#x5E73;&#x9762;&#x4E0A;&#x7684;&#x70B9;P(x&#xFF0C;y)&#xFF0C;&#x7ECF;&#x8FC7;&#x5BF9;x&#xFF0C;y&#x5750;&#x6807;&#x5206;&#x522B;&#x4E58;&#x4EE5;&#x5404;&#x81EA;&#x7684;&#x7F29;&#x653E;&#x56E0;&#x5B50;<img src="../../_mathjax_bb09243c.svg"> &#x548C; <img src="../../_mathjax_a212157d.svg"> &#xFF0C;&#x5F97;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x70B9; P&#xFF08;x&apos;&#xFF0C;y&apos;&#xFF09;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x53D8;&#x6362;&#x88AB;&#x79F0;&#x4E3A;&#x7F29;&#x653E;&#x53D8;&#x6362;&#xFF0C;&#x5176;&#x516C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_ff5a4ee8.svg"></p>
+<p>&#x5C06;&#x4E0A;&#x8FF0;&#x516C;&#x5F0F;&#x7528;&#x884C;&#x5217;&#x5F0F;&#x8868;&#x793A;&#x5219;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_97e91d95.svg"></p>
+<p><img src="../../_mathjax_fa81b916.svg"></p>
+<p>&#x540C;&#x7406;&#x5728;&#x4E09;&#x7EF4;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x4E00;&#x70B9;P&#xFF0C;&#x7ECF;&#x8FC7;x&#xFF0C;y&#xFF0C;z&#x5750;&#x6807;&#x5206;&#x522B;&#x4E58;&#x4EE5;&#x5404;&#x81EA;&#x7684;&#x7F29;&#x653E;&#x56E0;&#x5B50;<img src="../../_mathjax_bb09243c.svg">&#xFF0C;<img src="../../_mathjax_a212157d.svg"> &#x548C; <img src="../../_mathjax_893f46be.svg"> ,&#x516C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_5321879f.svg"></p>
+<p>&#x884C;&#x5217;&#x5F0F;&#x7684;&#x8868;&#x793A;&#x5219;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_859a55dc.svg"></p>
+<p><img src="../../_mathjax_5b60a6f0.svg"></p>
+</li>
+</ol>
+<h4 id="&#x9F50;&#x6B21;&#x5750;&#x6807;">&#x9F50;&#x6B21;&#x5750;&#x6807;</h4>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x4E0A;&#x4E00;&#x8282;&#x4ECB;&#x7ECD;&#x7684;&#xFF0C;&#x5E73;&#x79FB;&#xFF0C;&#x65CB;&#x8F6C;&#xFF0C;&#x548C;&#x7F29;&#x653E;&#xFF0C;&#x4E09;&#x79CD;&#x51E0;&#x4F55;&#x53D8;&#x6362;&#xFF0C;&#x5B83;&#x4EEC;&#x5404;&#x81EA;&#x7684;&#x51E0;&#x4F55;&#x53D8;&#x6362;&#x516C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x5E73;&#x79FB;&#x53D8;&#x6362;&#xFF1A;<img src="../../_mathjax_14c6b29f.svg"></li>
+<li>&#x65CB;&#x8F6C;&#x53D8;&#x6362;&#xFF1A;<img src="../../_mathjax_12c06fa4.svg"></li>
+<li>&#x7F29;&#x653E;&#x53D8;&#x6362;&#xFF1A;<img src="../../_mathjax_bdb5ee5.svg"></li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x65CB;&#x8F6C;&#x548C;&#x7F29;&#x653E;&#x53D8;&#x6362;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x5199;&#x4E3A;<img src="../../_mathjax_cb0a7b75.svg">&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x5E73;&#x79FB;&#x53D8;&#x6362;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x65CB;&#x8F6C;&#x7F29;&#x653E;&#x7684;&#x53D8;&#x6362;&#x5F62;&#x5F0F;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x7528;&#x4E00;&#x81F4;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E09;&#x79CD;&#x53D8;&#x6362;&#xFF0C;&#x4F7F;&#x5F97;&#x8FD9;&#x4E09;&#x79CD;&#x53D8;&#x6362;&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x53D8;&#x6362;&#x77E9;&#x9635;&#xFF0C;&#x65E2; <img src="../../_mathjax_651519f0.svg">&#xFF0C;&#x56E0;&#x6B64;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6570;&#x5B66;&#x5BB6;&#x5F15;&#x5165;&#x4E86;&#x9F50;&#x6B21;&#x5750;&#x6807;&#x7684;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x9F50;&#x6B21;&#x5750;&#x6807;&#x7684;&#x601D;&#x60F3;&#x662F;&#x628A;&#x4E00;&#x4E2A;n&#x7EF4;&#x7A7A;&#x95F4;&#x7684;&#x51E0;&#x4F55;&#x95EE;&#x9898;&#xFF0C;&#x8F6C;&#x79FB;&#x5230;&#x4E00;&#x4E2A;n+1&#x7EF4;&#x7684;&#x7A7A;&#x95F4;&#x53BB;&#x89E3;&#x51B3;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7528;n+1&#x4E2A;&#x5206;&#x91CF;&#x7684;&#x5411;&#x91CF;&#x53BB;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6709;n&#x4E2A;&#x5206;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x88AB;&#x79F0;&#x4E3A;&#x9F50;&#x6B21;&#x5750;&#x6807;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E8C;&#x7EF4;&#x5750;&#x6807;&#x7684;&#x4EFB;&#x610F;&#x9F50;&#x6B21;&#x70B9;P(x&#xFF0C;y&#xFF0C;w)&#xFF0C;&#x5219;&#x5B83;&#x5728;&#x5750;&#x6807;&#x7CFB;&#x4E0A;&#x7684;&#x5750;&#x6807;&#x4E3A;P(x /w&#xFF0C;y/ w)&#xFF0C;&#x5F53;&#x9F50;&#x6B21;&#x5750;&#x6807; w = 1&#x65F6;&#xFF0C;&#x88AB;&#x79F0;&#x4E3A;&#x89C4;&#x683C;&#x5316;&#x9F50;&#x6B21;&#x5750;&#x6807;&#xFF0C;&#x5B83;&#x5728;&#x56FE;&#x5F62;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x6700;&#x4E3A;&#x5E7F;&#x6CDB;&#xFF0C;&#x5229;&#x7528;&#x9F50;&#x6B21;&#x5750;&#x6807;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x5E73;&#x79FB;&#xFF0C;&#x65CB;&#x8F6C;&#xFF0C;&#x7F29;&#x653E;&#xFF0C;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
+<ol>
+<li>&#x5E73;&#x79FB;&#x53D8;&#x6362;<img src="../../_mathjax_3e9c1e38.svg">&#x8868;&#x793A;&#x4E3A;:
+<img src="../../_mathjax_d224c77e.svg"></li>
+</ol>
+<p>&#x200B;    &#x56E0;&#x6B64;&#x5E73;&#x79FB;&#x53D8;&#x6362;&#x5229;&#x7528;&#x9F50;&#x6B21;&#x5750;&#x6807;&#x53EF;&#x4EE5;&#x5C06;<img src="../../_mathjax_e089968c.svg">&#x8868;&#x793A;&#x4E3A;:<img src="../../_mathjax_df9a613a.svg"></p>
+<p><img src="../../_mathjax_b13a49f0.svg"></p>
+<p>&#x200B;2. &#x65CB;&#x8F6C;&#x53D8;&#x6362;<img src="../../_mathjax_f3c610a6.svg">&#x8868;&#x793A;&#x4E3A;:
+<img src="../../_mathjax_e94f871d.svg"></p>
+<p>&#x200B;    &#x5219;&#x65CB;&#x8F6C;&#x77E9;&#x9635;&#x548C;&#x70B9;P&#x7684;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;:</p>
+<p><img src="../../_mathjax_26186a22.svg"></p>
+<p>&#x200B;3. &#x7F29;&#x653E;&#x53D8;&#x6362;<img src="../../_mathjax_eadd21e7.svg">&#x8868;&#x793A;&#x4E3A;: 
+<img src="../../_mathjax_d55b3bc1.svg"></p>
+<p>&#x200B;    &#x5219;&#x7F29;&#x653E;&#x77E9;&#x9635;&#x548C;&#x70B9;P&#x7684;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_6d2973a4.svg"></p>
+<p>&#x5F15;&#x5165;&#x9F50;&#x6B21;&#x5750;&#x6807;&#x540E;&#xFF0C;&#x4E8C;&#x7EF4;&#x51E0;&#x4F55;&#x53D8;&#x6362;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;3x3&#x7684;&#x77E9;&#x9635;&#x6765;&#x8868;&#x793A;&#xFF0C;&#x7531;&#x4E8E;:</p>
+<ul>
+<li>&#x5E73;&#x79FB;&#x53D8;&#x6362;&#xFF1A;<img src="../../_mathjax_df9a613a.svg"></li>
+<li>&#x65CB;&#x8F6C;&#x53D8;&#x6362;&#xFF1A;<img src="../../_mathjax_12c06fa4.svg"></li>
+<li><p>&#x7F29;&#x653E;&#x53D8;&#x6362;&#xFF1A;<img src="../../_mathjax_bdb5ee5.svg"></p>
+<p>&#x56E0;&#x6B64;&#x4E8C;&#x7EF4;&#x7684;&#x53D8;&#x6362;&#x77E9;&#x9635;<strong><em>T</em></strong>&#x4E3A;&#xFF1A;
+<img src="../../_mathjax_b3f1dc72.svg"></p>
+<p>&#x53D8;&#x6362;&#x77E9;&#x9635;&#x548C;&#x70B9;P&#x7684;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;&#xFF1A;</p>
+<p><img src="../../_mathjax_6a4c0675.svg"></p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-2-向量.html" class="navigation navigation-prev " aria-label="Previous page: 1.2.向量">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-MMD的图形开发框架.html" class="navigation navigation-next " aria-label="Next page: 2.MMD的图形开发框架">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"zhentypora-root-url":"..\\..","typora-root-url":"..\\..","title":"1.3.矩阵","level":"1.3.3","depth":2,"next":{"title":"2.MMD的图形开发框架","level":"1.4","depth":1,"path":"books/zh-cn/02-MMD的图形开发框架.md","ref":"books/zh-cn/02-MMD的图形开发框架.md","articles":[]},"previous":{"title":"1.2.向量","level":"1.3.2","depth":2,"path":"books/zh-cn/01-2-向量.md","ref":"books/zh-cn/01-2-向量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","github-buttons","graph","mathjax","myseo","-donate","-latex-codecogs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ray-cast/mmd-shader-tutorial"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"donate":{"title":"默认空","button":"默认值：Donate","alipayText":"默认值：支付宝捐赠","wechatText":"默认值：微信捐赠"},"mySEO":{"titlePrefix":"着色器开发","description":"基于mikumikudance的着色器开发教程","keywords":"着色器,教程,HLSL,shader,开发"},"myseo":{"description":"","keywords":"","titlePrefix":""},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"ray-cast","repo":"mmd-shader-tutorial","type":"star","size":"small"}]},"mathjax":{"forceSVG":true,"version":"2.6-latest"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"实时渲染：MMD着色器开发","language":"zh-cn","gitbook":"*","description":"基于mikumikudance的着色器开发教程","direction":"ltr"},"file":{"path":"books/zh-cn/01-3-矩阵.md","mtime":"2018-11-09T03:53:04.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-09T03:55:40.269Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
